@@ -4,7 +4,8 @@ import FeaturedCourses from "@/components/FeaturedCourses";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import MelodyMasterTestimonial from "@/components/TestimonialCards";
 import UpcomingWebinars from "@/components/UpcomingWebinars";
-UpcomingWebinars
+import Instructors from "@/components/Instructors";
+
 
 
 export default function Home() {
@@ -15,7 +16,7 @@ export default function Home() {
       <WhyChooseUs />
       <MelodyMasterTestimonial />
       <UpcomingWebinars />
-      
+      <Instructors />
     </main>
   );
 }
