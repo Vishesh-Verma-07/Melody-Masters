@@ -16,6 +16,28 @@ function addVariablesForColors({ addBase, theme }: any) {
   });
 }
 
+// no scroll bar as global css variable
+interface AddUtilities {
+  (utilities: { [key: string]: { [key: string]: string } }): void;
+}
+
+interface PluginOptions {
+  addUtilities: AddUtilities;
+}
+
+function noScrollbars({ addUtilities }: PluginOptions): void {
+  const newUtilities = {
+    ".no-scrollbar::-webkit-scrollbar": {
+      display: "none",
+    },
+    ".no-scrollbar": {
+      "-ms-overflow-style": "none",
+      "scrollbar-width": "none",
+    },
+  };
+  addUtilities(newUtilities);
+}
+
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -47,6 +69,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [addVariablesForColors],
+  plugins: [addVariablesForColors, noScrollbars],
 };
 export default config;
